@@ -1,0 +1,15 @@
+{
+  "app": {
+    "config": "./config/app.config.json"
+  },
+  "database": {
+    "address": "localhost",
+    "port": "3000",
+    "user": "root",
+    "password": ""
+  },
+  "web": {
+    "address": "localhost",
+    "port": "8080"
+  }
+}

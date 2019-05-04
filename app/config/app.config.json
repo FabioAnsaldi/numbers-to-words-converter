@@ -1,0 +1,9 @@
+{
+  "app": {
+    "configuration": "app/config",
+    "source": "app/src",
+    "build": "app/dist",
+    "publicPath": "/",
+    "bundle": "bundle.js"
+  }
+}
