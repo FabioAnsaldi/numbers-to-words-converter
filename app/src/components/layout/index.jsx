@@ -1,20 +1,45 @@
 'use strict';
 
-import React, {Component} from 'react';
-import { withRouter} from 'react-router-dom';
+import React, {Component, lazy, Suspense} from 'react';
+import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import topbarState from '../widgets/topbar/reducer';
+import store from '../../combiner/store';
+
+const Topbar = lazy(() => import('../widgets/topbar/index.jsx'));
+store.attachReducers({topbarState});
 
 export class Layout extends Component {
 
     render() {
 
+        const defaultView = this.props.applicationState.routes.reduce((accumulator, current, i) => {
+
+            return current.default ? (<Redirect to={`${current.path}`}/>) : accumulator;
+        }, null);
+
+        const viewsList = (
+            <Suspense fallback={<div>Loading ...</div>}>
+                <Switch>
+                    {this.props.applicationState.routes.map((obj, i) => {
+
+                        let View = lazy(() => import(`../views/${obj.viewFolderName}/index.jsx`));
+                        return <Route key={i} exact path={obj.path} component={props => <View {...props} />}/>
+                    })}
+                    {defaultView}
+                </Switch>
+            </Suspense>
+        );
+
         return (
             <div>
                 <header>
-                    <h1>Numbers to Words Converter</h1>
+                    <Suspense fallback={<div>Loading ...</div>}>
+                        <Topbar/>
+                    </Suspense>
                 </header>
                 <main>
-                    <p>Content ...</p>
+                    {viewsList}
                 </main>
                 <footer>
                     <p>Powered by React + Redux</p>
