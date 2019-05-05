@@ -1,6 +1,7 @@
 let actions_types = [
     'RESET_STATE',
     'SET_VALUE',
+    'SET_NAME',
     'SET_ERROR'
 ];
 

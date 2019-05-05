@@ -20,6 +20,15 @@ export const setValue = (input) => {
     };
 };
 
+export const setName = (input) => {
+
+    return {
+
+        type: TYPES.SET_NAME,
+        name: input
+    };
+};
+
 export const setError = (input) => {
 
     return {
