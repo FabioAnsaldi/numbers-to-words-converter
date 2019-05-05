@@ -3,6 +3,7 @@
 import React, {Component, lazy, Suspense} from 'react';
 import {Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import * as reducers from '../views/**/reducer.js';
 import topbarState from '../widgets/topbar/reducer';
 import store from '../../combiner/store';
 
@@ -10,6 +11,17 @@ const Topbar = lazy(() => import('../widgets/topbar/index.jsx'));
 store.attachReducers({topbarState});
 
 export class Layout extends Component {
+
+    componentWillMount() {
+
+        this.props.applicationState.routes.map((obj, i) => {
+
+            let viewReducer = `{"${obj.viewFolderName}": {}}`;
+            viewReducer = JSON.parse(viewReducer);
+            viewReducer[obj.viewFolderName] = reducers[obj.viewFolderName];
+            store.attachReducers(viewReducer);
+        });
+    }
 
     render() {
 
