@@ -17,6 +17,7 @@ export class Layout extends Component {
         this.props.applicationState.routes.map((obj, i) => {
 
             let viewReducer = `{"${obj.viewFolderName}": {}}`;
+
             viewReducer = JSON.parse(viewReducer);
             viewReducer[obj.viewFolderName] = reducers[obj.viewFolderName];
             store.attachReducers(viewReducer);
@@ -36,6 +37,7 @@ export class Layout extends Component {
                     {this.props.applicationState.routes.map((obj, i) => {
 
                         let View = lazy(() => import(`../views/${obj.viewFolderName}/index.jsx`));
+
                         return <Route key={i} exact path={obj.path} component={props => <View {...props} />}/>
                     })}
                     {defaultView}
