@@ -9,9 +9,9 @@
     },
     {
       "id": 2,
-      "label": "Characters",
-      "path": "/characters",
-      "viewFolderName": "characters"
+      "label": "About",
+      "path": "/about",
+      "viewFolderName": "about"
     }
   ]
 }
