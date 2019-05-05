@@ -54,7 +54,7 @@ class Server {
      */
     setStaticRoute(friendlyRoute, sourcePath) {
 
-        this.app.use(friendlyRoute, express.static(path.join(__dirname, `../${sourcePath}`)));
+        this.app.use(friendlyRoute, express.static(path.join(__dirname, `${sourcePath}`)));
     }
 
     /**
