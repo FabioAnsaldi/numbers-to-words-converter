@@ -8,7 +8,7 @@
     "db": "json-server --watch ./database/index.json",
     "dev": "webpack-dev-server --config ./app/config/webpack.dev.js",
     "debug": "node $NODE_DEBUG_OPTION node_modules/.bin/webpack-dev-server --config ./app/config/webpack.dev.js",
-    "start": "node server/index.js",
+    "start": "yarn run db & node server/index.js",
     "test": "mocha || true"
   },
   "repository": "https://github.com/FabioAnsaldi/numbers-to-words-converter.git",
