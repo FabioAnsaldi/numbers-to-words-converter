@@ -49,7 +49,7 @@ You have to set your personal local setting if you cannot use the default settin
 ``` 
 To start the application locally you have to run the server with the optional parameter like below:
 ```sh
-$ yarn run start custom_name.json
+$ yarn run start --config custom_name.json
 ```
 If the ***your_local_address_ip*** is 127.0.0.1 and the ***your_local_service_port*** is 8080, you will see something like below:
 ```sh

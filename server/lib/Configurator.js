@@ -13,7 +13,7 @@ class Configurator {
      */
     constructor() {
 
-        let filename = process.argv[2];
+        let filename = (process.argv[2] && process.argv[2] === '--config') ? process.argv[3] : null;
         let localfilename = 'default.config';
 
         if (filename) {

@@ -37,7 +37,7 @@ describe('Server start method', () => {
 
     it('expect respond with status 200 for route /works', (done) => {
 
-        Server.setStaticRoute('/works', '../../test');
+        Server.setStaticRoute('/works', './test');
         chai.request(Server.app)
             .get('/works')
             .end((err, res) => {
