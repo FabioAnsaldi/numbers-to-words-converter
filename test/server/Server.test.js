@@ -4,7 +4,7 @@ const assert = require('assert');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const expect = chai.expect;
-const {Server} = require("../server/lib/Server");
+const {Server} = require("../../server/lib/Server");
 
 chai.use(chaiHttp);
 
@@ -37,7 +37,7 @@ describe('Server start method', () => {
 
     it('expect respond with status 200 for route /works', (done) => {
 
-        Server.setStaticRoute('/works', './test');
+        Server.setStaticRoute('/works', './test/server');
         chai.request(Server.app)
             .get('/works')
             .end((err, res) => {

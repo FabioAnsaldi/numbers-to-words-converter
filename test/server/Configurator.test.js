@@ -1,14 +1,14 @@
 'use strict';
 
 const assert = require('assert');
-const {Configurator} = require("../server/lib/Configurator");
+const {Configurator} = require("../../server/lib/Configurator");
 
 describe('Configurator setConfig method', () => {
 
     it('should set default process.env.CONFIG property as a JSON string', () => {
 
         let localfilename = 'default.config';
-        let localJSON = require(`../server/config/${localfilename}`);
+        let localJSON = require(`../../server/config/${localfilename}`);
         let sortable = {};
 
         Object.keys(localJSON)
@@ -23,7 +23,7 @@ describe('Configurator setConfig method', () => {
     it('should set custom process.env.CONFIG property as a JSON string', () => {
 
         let localfilename = 'default.config';
-        let localJSON = require(`../server/config/${localfilename}`);
+        let localJSON = require(`../../server/config/${localfilename}`);
         let customJSON = {"web": {"address": "127.0.0.1", "port": "9090"}};
         let merged = {...localJSON, ...customJSON};
         let sortable = {};
