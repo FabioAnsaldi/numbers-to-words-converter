@@ -11,7 +11,12 @@ export class About extends Component {
 
         return (
             <Grid item xs={12}>
-                <h1>About page</h1>
+                <h1>Exercise track</h1>
+                <p>Create a function which takes a number and returns the name of the number in English as a lowercase string.</p>
+                <p>The function should support as well as positive and negative numbers</p>
+                <hr/>
+                <h4>How it works</h4>
+                <p>You have to insert an <b>Integer Number</b> into input field and you will see the relative <b>String Name</b> of the number.</p>
             </Grid>
         );
     }
