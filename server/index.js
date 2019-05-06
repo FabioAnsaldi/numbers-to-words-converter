@@ -2,7 +2,7 @@
 
 const history = require('connect-history-api-fallback');
 const {Server} = require("./lib/Server");
-const config = `${process.env.SERVER_CONFIG.app.config}`;
+const config = require('../app/config/app.config.json');
 
 const bundleRegex = new RegExp(`^\\/\\d+\\.(${config.app.bundle.replace('.js', '')})\\..+`);
 const historyOption = {
@@ -23,5 +23,5 @@ const historyOption = {
     disableDotRule: true
 };
 Server.app.use(history(historyOption));
-Server.setStaticRoute(config.app.publicPath, `/${config.app.publicPath}`);
+Server.setStaticRoute(config.app.publicPath, `/${config.app.build}`);
 Server.start();
