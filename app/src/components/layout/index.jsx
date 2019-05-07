@@ -19,7 +19,7 @@ export class Layout extends Component {
             let viewReducer = `{"${obj.viewFolderName}": {}}`;
 
             viewReducer = JSON.parse(viewReducer);
-            viewReducer[obj.viewFolderName] = reducers[obj.viewFolderName];
+            viewReducer[`${obj.viewFolderName}State`] = reducers[obj.viewFolderName];
             store.attachReducers(viewReducer);
         });
     }
