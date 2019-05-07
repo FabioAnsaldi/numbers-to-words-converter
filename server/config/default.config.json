@@ -1,7 +1,4 @@
 {
-  "app": {
-    "config": "./config/app.config.json"
-  },
   "database": {
     "address": "localhost",
     "port": "3000",

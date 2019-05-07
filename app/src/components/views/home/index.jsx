@@ -17,7 +17,7 @@ export class Home extends Component {
         return (
             <Grid item xs={12}>
                 <h1>Welcome to Numbers to Words Converter</h1>
-                <p>The fomr takes a <b>integer</b> number and returns the <b>name</b> of the number in English as a
+                <p>The form takes a <b>integer</b> number and returns the <b>name</b> of the number in English as a
                     lowercase string</p>
                 <p><b>Enjoy it!</b></p>
                 <Suspense fallback={<div>Loading ...</div>}>
