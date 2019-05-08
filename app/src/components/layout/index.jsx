@@ -16,7 +16,7 @@ export class Layout extends Component {
 
         this.props.applicationState.routes.map((obj, i) => {
 
-            let viewReducer = `{"${obj.viewFolderName}": {}}`;
+            let viewReducer = `{"${obj.viewFolderName}State": {}}`;
 
             viewReducer = JSON.parse(viewReducer);
             viewReducer[`${obj.viewFolderName}State`] = reducers[obj.viewFolderName];
