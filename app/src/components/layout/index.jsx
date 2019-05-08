@@ -12,18 +12,6 @@ store.attachReducers({topbarState});
 
 export class Layout extends Component {
 
-    componentWillMount() {
-
-        this.props.applicationState.routes.map((obj, i) => {
-
-            let viewReducer = `{"${obj.viewFolderName}State": {}}`;
-
-            viewReducer = JSON.parse(viewReducer);
-            viewReducer[`${obj.viewFolderName}State`] = reducers[obj.viewFolderName];
-            store.attachReducers(viewReducer);
-        });
-    }
-
     render() {
 
         const defaultView = this.props.applicationState.routes.reduce((accumulator, current, i) => {

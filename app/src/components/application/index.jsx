@@ -7,11 +7,24 @@ import axios from 'axios';
 import * as actions from './actions';
 import layoutState from '../../components/layout/reducer';
 import store from '../../combiner/store';
+import * as reducers from '../views/**/reducer.js';
 
 const Layout = lazy(() => import('../layout/index.jsx'));
 store.attachReducers({layoutState});
 
 export class Application extends Component {
+
+    setViewReducer() {
+
+        this.props.applicationState.routes.map((obj, i) => {
+
+            let viewReducer = `{"${obj.viewFolderName}State": {}}`;
+
+            viewReducer = JSON.parse(viewReducer);
+            viewReducer[`${obj.viewFolderName}State`] = reducers[obj.viewFolderName];
+            store.attachReducers(viewReducer);
+        });
+    }
 
     componentWillMount() {
 
@@ -25,6 +38,7 @@ export class Application extends Component {
             .then((response) => {
 
                 this.props.dispatch(actions.setRoutes(response.data));
+                this.setViewReducer();
             });
     }
 
